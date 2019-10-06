@@ -4,22 +4,25 @@ using UnityEngine;
 public class Gun : MonoBehaviour
 {
 
-    public float damage = 10f;
-    public float range = 100f;
+    public float damage = 15f;
+    public float range = 5f;
+    public float force = 100f;
+    public float firerate = 15f;
+
     public Camera fpsCam;
     public ParticleSystem MuzzleFlash;
     public GameObject ImpactEffect;
-    public float force = 30f;
-    public float firerate = 15f;
 
     private float nextTimeToFire = 0f;
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire) 
+        if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
         {
+            
             nextTimeToFire = Time.time + 1f / firerate;
             Shoot();
+            GetComponent<AudioSource>().Play();
         }
 
 
