@@ -12,6 +12,7 @@ public class Gun : MonoBehaviour
     public Camera fpsCam;
     public ParticleSystem MuzzleFlash;
     public GameObject ImpactEffect;
+    public GameObject Barrel;
 
     private float nextTimeToFire = 0f;
     // Update is called once per frame
