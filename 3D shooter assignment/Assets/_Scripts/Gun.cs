@@ -1,9 +1,10 @@
 ﻿
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Gun : MonoBehaviour
 {
-
+    public int ammo = 35;
     public float damage = 15f;
     public float range = 5f;
     public float force = 100f;
@@ -20,10 +21,14 @@ public class Gun : MonoBehaviour
     {
         if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
         {
-            
+
             nextTimeToFire = Time.time + 1f / firerate;
             Shoot();
+            GameObject.Find("AmmoVar").GetComponent<Text>().text = "" + ammo-- + "/100";
             GetComponent<AudioSource>().Play();
+        }
+        else if (ammo == 0) {
+            
         }
 
 
